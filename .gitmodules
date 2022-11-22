@@ -1,0 +1,6 @@
+[submodule "IT8951-ePaper"]
+	path = IT8951-ePaper
+	url = https://github.com/luposmi/IT8951-ePaper
+[submodule "smartclock"]
+	path = smartclock
+	url = https://github.com/Projektkurs/smartclock

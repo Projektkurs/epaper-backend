@@ -46,8 +46,8 @@ impl epaper{
     }
     pub unsafe fn writeimage(&self, image: Vec<u8>){
         let (ptr,_,_)= image.into_raw_parts();
-        EPD_IT8951_1bp_Refresh(ptr,0,0,self.info.Panel_W,self.info.Panel_H,self.amode,self.gettargetaddr(),true);
-        //EPD_IT8951_8bp_Refresh(ptr,0,0,self.info.Panel_W,self.info.Panel_H,false,self.gettargetaddr());
+        //EPD_IT8951_1bp_Refresh(ptr,0,0,self.info.Panel_W,self.info.Panel_H,self.amode,self.gettargetaddr(),true);
+        EPD_IT8951_8bp_Refresh(ptr,0,0,self.info.Panel_W,self.info.Panel_H,false,self.gettargetaddr());
 
     }
     pub fn gettargetaddr(&self) -> u32{

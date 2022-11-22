@@ -1,1 +1,1 @@
-#include "../lib/e-Paper/EPD_IT8951.h"
+#include "IT8951-ePaper/Raspberry/lib/e-Paper/EPD_IT8951.h"

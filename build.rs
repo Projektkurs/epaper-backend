@@ -5,6 +5,14 @@ use std::env;
 use std::path::PathBuf;
 
 fn main() {
+    let _i=0;
+    //let out_path = PathBuf::from(env::var("OUT_DIR").unwrap()).join("IT8951");
+    let dst =cmake::Config::new("./")
+        .no_build_target(true)
+        //.out_dir(out_path)
+        .build();
+    println!("cargo:rustc-link-search=native={}", dst.display());
+    println!("cargo:rustc-link-lib=IT8951");
     x11();
     epaper();
 }
@@ -47,10 +55,11 @@ fn epaper(){
     //    .file("../lib/e-Paper/EPD_IT8951.c")
     //    .compile("foo");
 
-    println!("cargo:rustc-link-search=../lib");
-    println!("cargo:rustc-link-search=../build");
+    println!("cargo:rustc-link-search=IT8951-ePaper/Raspberry/lib");
+    println!("cargo:rustc-link-search={}{}",env::var("OUT_DIR").unwrap(),"/build");
     //println!("cargo:rustc-link-lib=../build/libIT8951.a");
     println!("cargo:rustc-link-lib=IT8951");
+    println!("cargo:rustc-link-lib=bcm2835");
 
 
     println!("cargo:rerun-if-changed=wrapper.h");
